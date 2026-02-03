@@ -541,13 +541,13 @@ DeviceFileEvents
 | order by TimeGenerated asc
 
 ```
-**Result:**  The folder path that the attacker used to establish persistence for the executable is C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\revshell.exe
+**Result:**  The attacker established persistence by placing the executable in: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\revshell.exe
 
 ---
 
 ## 22 part 1: Recognition Query- Identify the remote session associated with confirmed malicious persistence activity.
 **Purpose:**  
-This query isolates the executable placement in a Startup directory and captures the associated InitiatingProcessRemoteSessionDeviceName, establishing the initial linkage between attacker activity and a remote interactive session.
+Correlate attacker activity to a specific remote session identifier and validate that the same remote session label is consistently present across file, process, and network telemetry during the attack window.
 
 **Query ID:** 
 22-CorpHealth Query22
@@ -562,11 +562,11 @@ DeviceFileEvents
 | order by TimeGenerated asc
 
 ```
-**Result:**  Identified remote IP label 对手
+**Result:**  Remote session label associated with the attacker’s activity: 对手
 
 ---
 
-## 22 part 2 – File Event Validation- Confirm the prevalence of the remote session across file system activity.
+## 22 part 2 – File Event Validation- File Event Validation for Remote Session Consistency
 
 **Purpose:**  
 This query summarizes file system events by InitiatingProcessRemoteSessionDeviceName to determine whether the same remote session appears consistently across file operations on the host during the attack window.
@@ -583,7 +583,7 @@ DeviceFileEvents
 
 
 ```
-**Result:**  对手 appears 216 times
+**Result:** Remote session label prevalence in file telemetry: 对手 observed 216 times
 
 ---
 
@@ -603,11 +603,11 @@ DeviceProcessEvents
 | order by Count desc
 
 ```
-**Result:**  对手 appears 56 times
+**Result:** Validate that the same remote session initiated process executions: 对手 observed 56 times
 
 ---
 
-## 22 part 4 – Network Event Validation- Confirm outbound network activity originated from the same remote session.
+## 22 part 4 – Network Event Validation- Network Event Validation for Remote Session Consistency
 
 **Purpose:**  
 This query summarizes network telemetry by InitiatingProcessRemoteSessionDeviceName, demonstrating that external communication attempts were initiated from the same session observed in file and process activity.
@@ -623,7 +623,7 @@ DeviceNetworkEvents
 | order by Count desc
 
 ```
-**Result:**  对手 appears 99 times
+**Result:**  Remote session label prevalence in network telemetry: 对手 obsesrved 99 times
 
 ---
 
@@ -645,7 +645,7 @@ DeviceFileEvents
 | order by TimeGenerated asc
 
 ```
-**Result:** The IP address that appears as the source of the remote session tied to the attacker’s activity is 100.64.100.6
+**Result:** Remote session source IP observed during attacker activity: 100.64.100.6
 
 ---
 
@@ -667,7 +667,7 @@ DeviceNetworkEvents
 | distinct InitiatingProcessRemoteSessionIP
 
 ```
-**Result:** 10.168.0.6
+**Result:** Internal pivot IP identified: 10.168.0.6
 
 ---
 
@@ -692,7 +692,7 @@ DeviceLogonEvents
 
 
 ```
-**Result:** 2025-11-23T03:08:31.1849379Z
+**Result:** Internal pivot IP identified: 2025-11-23T03:08:31.1849379Z
 
 ---
 
@@ -718,11 +718,11 @@ DeviceLogonEvents
 
 
 ```
-**Result:** 104.164.168.17
+**Result:** Public source IP associated with attacker logons: 104.164.168.17
 
 ---
 
-## 27 – Attacker Geolocation Analysis via Defender Advanced Hunting
+## 27 – Attacker Geolocation Analysis 
 
 **Purpose:**  
 This query enriches the suspicious remote logon IP (104.164.168.17) using geo_info_from_ip_address() to identify the country, region, and city from which the attacker accessed CH-OPS-WKS02. 
@@ -744,7 +744,7 @@ DeviceLogonEvents
 | project TimeGenerated, Geo, AccountName, LogonType, RemoteIP, RemoteDeviceName
 
 ```
-**Result:** According to Defender geolocation enrichment, the attacker’s IPs originate from Vietnam
+**Result:** Geolocation enrichment indicated attacker origin: Vietnam
 
 
 ---
@@ -792,7 +792,8 @@ DeviceProcessEvents
 
 
 ```
-**Result:** "NOTEPAD.EXE" C:\Users\chadmin\Documents\CH-OPS-WKS02 user-pass.txt
+**Result:** First file opened after attacker logon:
+C:\Users\chadmin\Documents\CH-OPS-WKS02 user-pass.txt (opened via NOTEPAD.EXE)
 
 ---
 
@@ -815,7 +816,7 @@ DeviceProcessEvents
 
 
 ```
-**Result:** The attacker’s next action was "ipconfig.exe"
+**Result:** Next attacker action observed: "ipconfig.exe"
 
 
 ---
@@ -840,7 +841,7 @@ DeviceLogonEvents
 
 
 ```
-**Result:** Next successful logon account name: ops.maintenance
+**Result:** Next attacker action observed: ops.maintenance
 
 
 
