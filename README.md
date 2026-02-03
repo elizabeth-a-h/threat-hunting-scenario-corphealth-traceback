@@ -24,6 +24,13 @@ This project emphasizes **analyst reasoning, investigative workflow, and defensi
 - [Notes & Disclaimer](#notes--disclaimer)
 
 ---
+## Repository Navigation
+
+-  **Incident Report:** [`/report`](./report)
+-  **Investigative Queries & Evidence:** [`/queries`](./queries)
+-  **Attack Timelines:** [`/timeline`](./timeline)
+
+---
 
 ## Hunt Objectives
 
