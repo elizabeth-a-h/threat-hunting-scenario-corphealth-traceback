@@ -1,9 +1,8 @@
 # Incident Report — CorpHealth: Traceback Threat Hunt
 
-
 This folder contains the formal incident report documenting the complete findings from the CorpHealth: Traceback Threat Hunt. The report is written to reflect standard SOC investigation procedures and includes the reconstructed attack chain, analysis of indicators, and recommended remediation steps.
 
-## Contents
+## Incident Report Contents
 
 - [1. Executive Summary](#1-executive-summary)
 - [2. Platforms and Languages Leveraged](#2-platforms-and-languages-leveraged)
@@ -16,20 +15,6 @@ This folder contains the formal incident report documenting the complete finding
 - [9. Recommended Response Actions & Next Steps](#9-recommended-response-actions--next-steps)
 - [10. Conclusion](#10-conclusion)
 
-
-
-[4. Summary of Key Findings](#4-summary-of-key-findings)
-
-
-- **Incident_Report.md** — Complete, structured report including:
-  - Executive summary
-  - Scope and affected assets
-  - Detection and response summary
-  - Root cause analysis
-  - Step-by-step attack chain
-  - Impact assessment
-  - Recommendations
-  - Appendix with IOC tables, MITRE ATT&CK mapping, and investigation timeline
 
 ## Notes
 
