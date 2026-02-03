@@ -317,7 +317,8 @@ DeviceRegistryEvents
 | order by TimeGenerated asc
 
 ```
-**Result:**  Newly created registry value name that was added to the Run Key: MaintenanceRunner
+**Result:**  A new Run key value was created for transient persistence:
+Registry Value Name: MaintenanceRunner
 
 
 ---
@@ -337,7 +338,7 @@ DeviceEvents
 | order by TimeGenerated asc
 
 ```
-**Result:**  Time of the first privilege escalation event is: 2025-11-23T03:47:21.8529749Z
+**Result:**  The first privilege escalation event occurred at: 2025-11-23T03:47:21.8529749Z
 
 ---
 ## 13 – AV Exclusion Attempt
@@ -356,7 +357,7 @@ DeviceProcessEvents
 | order by TimeGenerated asc 
 
 ```
-**Result:**  The folder path the attacker attempted to add as an exclusion in Windows Defender is C:\ProgramData\Corp\Ops\staging -Force
+**Result:**  The attacker attempted to add the following folder as a Defender exclusion: C:\ProgramData\Corp\Ops\staging -Force
 
 ---
 ## 14 - Decode First PowerShell EncodedCommand Execution
@@ -378,7 +379,7 @@ DeviceProcessEvents
 | order by TimeGenerated asc 
 
 ```
-**Result:**  The first decoded PowerShell command was Write-Output 'token-6D5E4EE08227'
+**Result:**  The first decoded PowerShell command was: Write-Output 'token-6D5E4EE08227'
 
 ---
 ## 15 – Identify Process Responsible for Privilege Token Modification
@@ -400,7 +401,7 @@ DeviceEvents
 
 
 ```
-**Result:**  The InitiatingProcessID of the process whose token privileges were modified is 4888.
+**Result:**  The process responsible for token privilege modification had: InitiatingProcessID: 4888.
 
 ---
 
@@ -424,7 +425,7 @@ DeviceEvents
 | order by TimeGenerated asc
 
 ```
-**Result:**  TSID is S-1-5-21-1605642021-30596605-784192815-1000
+**Result:**  The modified token belonged to the following SID: S-1-5-21-1605642021-30596605-784192815-1000
 
 ---
 
@@ -448,7 +449,7 @@ DeviceFileEvents
 
 
 ```
-**Result:**  The executable that was written to disk after the outbound request is: revshell.exe
+**Result:**  The executable that was written to disk after the outbound request was: revshell.exe
 
 
 ---
@@ -474,7 +475,7 @@ DeviceFileEvents
 
 
 ```
-**Result:**  The workstation connected to this URL when retrieving the file: https://unresuscitating-donnette-smothery.ngrok-free.dev/revshell.exe
+**Result:**  The file was retrieved from the following external URL: https://unresuscitating-donnette-smothery.ngrok-free.dev/revshell.exe
 
 ---
 
@@ -495,7 +496,7 @@ DeviceProcessEvents
 
 
 ```
-**Result:**  The explorer.exe is the process that executed the downloaded binary on CH-OPS-WKS02
+**Result:**  The binary was executed by the following parent process: explorer.exe
 
 ---
 
@@ -518,7 +519,7 @@ DeviceNetworkEvents
 | sort by TimeGenerated asc
 
 ```
-**Result:**  The external IP address the executable attempted to contact after execution was: 13.228.171.119
+**Result:**  The executable attempted outbound connections to the following external IP: 13.228.171.119
 
 
 ---
