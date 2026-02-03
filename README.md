@@ -50,7 +50,7 @@ All queries were developed and executed manually to validate hypotheses and pivo
 
 
 ## Repository Structure
-.
+```text
 ├── README.md
 ├── report/
 │   └── Incident_Report.md
@@ -65,8 +65,6 @@ All queries were developed and executed manually to validate hypotheses and pivo
     ├── MITRE_Mapping.md
     ├── Timeline.md
     └── Screenshots.md
-
-
 ---
 
 ## Methodology
