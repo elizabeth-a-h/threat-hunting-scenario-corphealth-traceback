@@ -70,13 +70,41 @@ Readers are encouraged to:
 
 ---
 
+---
+
+## Query Index
+
+### 01 – Initial Access Validation
+- **Query:** `01_initial_access.kql`
+- **Evidence:** `01_initial_access.png`
+- Purpose: Identify abnormal authentication activity and confirm potential initial access.
+
+### 02 – Suspicious Process Execution
+- **Query:** `02_execution.kql`
+- **Evidence:**  
+  - `02_execution.png`  
+  - `02_execution_2.png`
+- Purpose: Validate manual execution of scripts and diagnostic tools outside approved automation.
+
+### 03 – Network & Command-and-Control Activity
+- **Query:** `03_network_activity.kql`
+- **Evidence:** `03_network_activity.png`
+- Purpose: Identify unauthorized outbound connectivity and tunneling behavior.
+
+
+
+---
+
 ## Notes
 
-- Queries are written in Kusto Query Language (KQL)
-- Queries were executed in a Log Analytics workspace containing Microsoft Defender for Endpoint telemetry
-- Table schemas reflect Microsoft Defender tables (DeviceProcessEvents, DeviceLogonEvents, DeviceNetworkEvents, etc.)
-- Results and indicators are documented separately to avoid duplication
+- Queries were executed against a **Log Analytics Workspace** using Kusto Query Language (KQL).
+- Screenshots are provided to preserve investigative context and observable telemetry at the time of analysis.
+- Queries were written and executed manually to support hypothesis-driven investigation rather than automated alerting.
+
+---
 
 
 This directory is intended to showcase **how analysts think**, not just what they detect.
+
+
 
