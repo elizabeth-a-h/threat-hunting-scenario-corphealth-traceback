@@ -10,6 +10,17 @@ Rather than relying on a single alert or predefined detection, the investigation
 
 ---
 
+## Contents
+
+- [Overview](#overview)
+- [Query Philosophy](#query-philosophy)
+- [Query Organization](#query-organization)
+- [Using These Queries](#using-these-queries)
+- [Notes](#notes)
+- [Query Index](#query-index)
+
+---
+
 ## Query Philosophy
 
 In real-world threat hunting, analysts rarely know the full scope of activity at the outset. Queries are written to:
