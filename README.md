@@ -7,7 +7,6 @@
 </p>
 
 
-# CorpHealth: Traceback — Threat Hunt Investigation
 ```
 Analyst: Elizabeth Harnisch
 Date: 2026-01-24
