@@ -1,5 +1,20 @@
 # CorpHealth: Traceback — Threat Hunt Investigation
 
+<p align="center">
+
+<img width="1500" height="500" alt="CorpHealth-Traceback" src="https://github.com/user-attachments/assets/ea655095-ff81-45df-9601-93ade337ff06" />
+
+</p>
+
+
+# CorpHealth: Traceback — Threat Hunt Investigation
+```
+Analyst: Elizabeth Harnisch
+Date: 2026-01-24
+Organization: LogNPacific CyberRange Threat Hunt
+```
+---
+
 ## Overview
 
 This repository documents a full end-to-end threat-hunting investigation conducted against an operations workstation (`CH-OPS-WKS02`) within a controlled enterprise telemetry environment.
